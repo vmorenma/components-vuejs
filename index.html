@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css">
+    <style>
+        body{
+            padding-top:40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root" class="container">
+        <vmm-message title="Hello World" body="Lorem ipsum dolor sit amet."></vmm-message>
+        <hr />
+        <!-- Experimentamos con los eventos customizados. -->
+        <!-- Para comunicarnos new Vue asignado al elemento root necesitarems añadir
+        @click="$emit('close') en nuestro componente y @close="la accion a realizar"
+        en el vm-modal para recibir el evento.  -->
+        <vmm-modal v-if="showModal" @close="showModal=false">
+            <p>
+                Aqui va el texto que queramos mostrar en el modal, este texto
+                puede ser recuperado de una base de datos también
+            </p>
+        </vmm-modal>
+
+        <button @click="showModal=true">Muesta el modal</button>
+
+        <hr />
+
+        <vmm-tabs>
+            <vmm-tab name="About Us" :selected="true">
+                <h1> Aquí va el contenido para el apartado sobre nosotros.</h1>
+            </vmm-tab>
+            <vmm-tab name="About Our Culture">
+                <h1> Aquí va el contenido para el apartado sobre nuestra cultura.</h1>
+            </vmm-tab>
+            <vmm-tab name="About Our Vision">
+                <h1> Aquí va el contenido para el apartado sobre nuestra visión.</h1>
+            </vmm-tab>
+        </vmm-tabs>
+
+
+
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
